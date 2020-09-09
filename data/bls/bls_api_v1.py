@@ -14,17 +14,17 @@ def bls_api_query_v1(url = 'https://api.bls.gov/publicAPI/v1/timeseries/data/',
     """
     headers = {'Content-type': 'application/json'}
     data = json.dumps({'seriesid': series_id,
-                       'startyear': start, 
+                       'startyear': start,
                        'endyear': end})
-    
-    response = requests.post('https://api.bls.gov/publicAPI/v1/timeseries/data/', 
-                             data=data, 
+
+    response = requests.post('https://api.bls.gov/publicAPI/v1/timeseries/data/',
+                             data=data,
                              headers=headers)
     json_response = json.loads(response.text)
     return json_response
 
 
-def parse_bls_api_query(json_response: Dict, 
+def parse_bls_api_query(json_response: Dict,
                         return_dataframe = True):
     """
     Parse API response
@@ -35,7 +35,7 @@ def parse_bls_api_query(json_response: Dict,
         data = [record for record in series_id.get('data')]
         for record in data:
             record.update({'series_name': series_name})
-    
+
     if return_dataframe:
         data = pd.DataFrame(data)
     return data
