@@ -3,3 +3,14 @@ __pycache__
 
 *.sqlite3
 .env
+<<<<<<< HEAD
+=======
+data/bls/downloads
+
+# NPM/Yarn
+node_modules
+
+# IDE settings
+.idea
+.vscode
+>>>>>>> 8d5c7dbeff4231c0efcd640dc241aa56625d4e2b
